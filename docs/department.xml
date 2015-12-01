@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<root>
+   <xFir>
+        <cKey>00031</cKey>
+        <cID>31</cID>
+        <tNam>ТС</tNam>
+        <dbKey>8</dbKey>
+		<dbNam>ТЕХСНАБ</dbNam>
+        <props>
+           <add>Кузнецова пр., д.26, к.1, оф.403</add>
+           <bik>044030811</bik>
+           <buh_n>Филиппов И.Г.</buh_n>
+           <buh_p>Глав. бух.</buh_p>
+		   <f_n>ООО "ТЕХСНАБ"</f_n>
+			<inn>7807386676</inn>
+            <kpp>780701001</kpp>
+            <inx>198328</inx>
+           <man_n>Филиппов И.Г.</man_n>
+           <man_p>Генеральный директор</man_p>
+             <reg>г.Санкт-Петербург</reg>
+           <rs_cr>30101810300000000811</rs_cr>
+            <rs_n>40702810840260001641</rs_n>
+             <rs_p>г.Санкт-Петербург</rs_p>
+           <rs_t>ФИЛИАЛ №7806 ВТБ24 (ЗАО)</rs_t>
+            <sign>ts_sign.png</sign>
+            <stamp>ts_stamp.png</stamp>
+		   <tel/>
+           <okpo/>
+            <email/>
+        </props>
+   </xFir>
+   <xFir>
+        <cKey>00034</cKey>
+        <cID>34</cID>
+        <tNam>Снаб</tNam>
+          <dbKey>10</dbKey>
+      <dbNam>ТехноСервисСнаб</dbNam>
+       <props>
+           <add>ул. Зайцева, д.41 литА, офис 433</add>
+             <inx>198188</inx>
+		   <f_n>ООО "ТехноСервисСнаб"</f_n>
+ 			<inn>7805315180</inn>
+            <kpp>780501001</kpp>
+             <reg>г.Санкт-Петербург</reg>
+           <buh_n>Дьяков Ю.В.</buh_n>
+           <man_n>Дьяков Ю.В.</man_n>
+           <buh_p>Глав. бух.</buh_p>
+           <man_p>Генеральный директор</man_p>
+           <rs_n>40702810832400000376</rs_n>
+			<bik>044030786</bik>
+			<rs_cr>30101810600000000786</rs_cr>
+            <rs_t>ОАО "Альфа-Банк"</rs_t>
+           <sign>ts_sign.png</sign>
+            <stamp>ts_stamp.png</stamp>
+		   <tel/>
+           <okpo/>
+            <email/>
+        </props>
+   </xFir>
+ </root>

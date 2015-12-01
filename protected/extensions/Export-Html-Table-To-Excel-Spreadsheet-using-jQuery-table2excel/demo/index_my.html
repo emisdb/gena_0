@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery Boilerplate</title>
+		<link rel="stylesheet" type="text/css" href="../../../../css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../../../css/print_doc.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../src/jquery.table2excel.js"></script>
+	</head>
+	<body>
+   <table class="table2excel" data-tableName="Test Table 1" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+            <td>
+<table style="border-width:0px;" width="100%">
+<tbody>
+    <tr>
+    <td>
+ <table border="0" width="100%">
+<tbody><tr>
+<td style="width:60px;">
+&nbsp;
+</td>
+<td width="auto">    
+    <div style="font-size: 8pt; background-color: transparent;">
+        Внимание!
+ Оплата данного счета означает согласие с условиями поставки товара. 
+Уведомление об оплате  обязательно, в противном случае не гарантируется 
+наличие товара на складе. Товар отпускается по факту прихода денег на 
+р/с Поставщика, самовывозом, при наличии доверенности и паспорта.
+    </div>
+</td>
+<td style="width:60px;">
+&nbsp;
+</td>
+</tr>
+<tr>
+<td colspan="3">
+    <div style="text-align: center; width: 700px; font-size: 10pt; font-weight: bold; background-color: transparent;">
+Внимание! Изменились реквизиты.<br>
+        Образец заполнения платежного поручения                                 
+    </div>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="invoice_bank_rekv" cellpadding="1" cellspacing="1" width="100%">
+  <tbody><tr>
+    <td style="min-height:54px;padding-bottom:0; border-width:1px 0px 0px 1px;" rowspan="2" colspan="2" width="400">
+    <table border="0" cellpadding="0" cellspacing="0" width="400">
+    <tbody><tr>
+    <td valign="top">
+        <div style="width:350px;font-size:10pt;" id="bank_name">
+        ФИЛИАЛ №7806 ВТБ24 (ЗАО) г.Санкт-Петербург        </div>   
+    </td>
+    </tr>
+    <tr>
+    <td height="10" valign="bottom">    
+        <div style="width:350px;font-size:8pt;padding-top:5pt;">
+Банк получателя
+        </div>                    
+    </td>
+    </tr>
+    </tbody></table>    
+    </td>
+    <td style="min-height:22px;height:auto; border-width:1px 0px 0px 1px;" width="100">
+        <div style="width:100px;font-size:10pt;" id="bank_bik_txt">БИK</div>    
+    </td>
+    <td rowspan="2" style="border-bottom:0px;" width="200">
+        <div style="width: 190px; font-size: 10pt; height: 22px; background-color: transparent;" id="bank_bik">
+        044030811        </div>
+        <div style="width: 190px; font-size: 10pt; background-color: transparent;" id="bank_schet">
+       30101810300000000811        </div>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 100px; border-right: 0px;">
+        <div style="width:100px;font-size:10pt;" id="bank_schet_txt">Сч. №</div>    
+    </td>
+  </tr>
+  <tr>
+    <td style="min-height:16px;height:auto;border-width:1px 0px 0px 1px;" width="200">
+        <div style="width:198px;font-size:10pt;" id="inn_txt">ИНН&nbsp;7807386676</div>      
+    </td>
+    <td style="min-height:16px;height:auto;border-width:1px 0px 0px 0px;" width="200">
+        <div style="width:198px;font-size:10pt;" id="kpp_txt">КПП&nbsp;780701001</div>      
+    </td>
+    <td style="min-height:62px;height:auto;border-width:0px 0px 1px 1px;" rowspan="2" width="100">
+        <div style="width: 100px; font-size: 10pt; background-color: transparent;" id="seller_schet_txt">Сч. №</div>     
+    </td>
+    <td style="min-height:62px;height:auto;" rowspan="2" width="200">
+        <div style="width:190px;font-size:10pt;" id="seller_schet">40702810840260001641        </div>     
+    </td>
+  </tr>
+  <tr>
+    <td style="min-height:46px;height:auto;border-right:0px;" colspan="2">
+
+    <table border="0" cellpadding="0" cellspacing="0" width="400">
+    <tbody><tr>
+    <td valign="top">
+        <div style="width:400px;font-size:10pt;" id="seller_name">
+            ООО "ТЕХСНАБ"        </div>  
+    </td>
+    </tr>
+    <tr>
+    <td height="10" valign="bottom">    
+        <div style="width:400px;font-size:8pt;" id="seller_txt">Получатель</div>                        
+    </td>
+    </tr>
+    </tbody></table>      
+
+    </td>
+  </tr>
+</tbody></table>
+<br>
+<div style="width: 700px; font-weight: bold; font-size: 14pt; padding-left: 5px; background-color: transparent;">
+    Счет № 668 от 18 февр. 2015 г.</div>
+<br>  
+<div style="background-color:#000000;width:100%;font-size:1px;height:2px;">&nbsp;</div>
+
+
+<table width="100%">
+<tbody><tr>
+<td width="85">
+    <div style="width:85px;font-size:10pt;padding-left:2px;" id="seller_full_txt">
+Поставщик:
+    </div>
+</td>
+<td>
+    <div style="width: 630px; font-weight: bold; font-size: 10pt; padding-left: 2px; background-color: transparent;" id="seller_full">
+    ИНН 7807386676 КПП 780701001 ООО "ТЕХСНАБ" 198328, г.Санкт-Петербург, Кузнецова пр., д.26, к.1, оф.403    </div>
+</td>
+</tr>
+<tr>
+<td width="85">
+    <div style="width:85px;font-size:10pt;padding-left:2px;" id="buyer_full_txt">
+Покупатель:
+    </div>
+</td>
+<td>
+    <div style="width: 630px; font-weight: bold; font-size: 10pt; padding-left: 2px; background-color: transparent;" id="buyer_full">
+    ИНН 3810018690 КПП 381001001 ООО "Промсвет", (3952)288-478    </div>
+</td>
+</tr>
+</tbody>
+</table>
+
+  
+<table class="invoice_items" id="items" border="0" cellpadding="0" cellspacing="0" width="100%">
+<thead>
+ <tr id="header">
+  <th style="width:30px; border-left:2px solid;">
+    <div style="width:30px; " id="item_n_txt">№</div>  
+  </th> 
+  <th>
+    <div id="item_name_txt" style="background-color: transparent;">Товар</div>     
+  </th>  
+  <th style="width:50px;">
+    <div style="width:55px;" id="item_kol_txt">Кол - во</div>       
+  </th>
+  <th style="width:50px;">
+    <div style="width:50px;" id="item_ed_txt">Ед.</div>         
+  </th>
+  <th style="width:55px;">
+    <div style="width: 55px; background-color: transparent;" id="item_price_txt">Цена</div>         
+  </th>
+    
+  <th style="width:60px;border-right:2px solid;">
+    <div style="width:60px;" id="item_summ_txt">Сумма</div>           
+  </th>  
+ </tr> 
+</thead>                
+ <tbody>
+ <tr><td style="border-left:2px solid;">1</td><td style="text-align:left;padding-left:5px;">Муфта концевая 1КНТпН-4М</td>
+<td style="text-align:right;">38,00&nbsp;</td>
+<td style="text-align:center;">компл.</td>
+<td style="text-align:right;">1&nbsp;154,00&nbsp;</td>
+<td style="text-align:right;border-right:2px solid;">43&nbsp;852,00&nbsp;</td>
+</tr>
+
+<tr>
+  <td style="border-width:1px 0 0;" colspan="5">
+    <div style="font-weight:bold;font-size:10pt;text-align:right;padding-right:5px;" id="items_summ_txt">Итого:</div>  
+  </td>
+  <td style="font-weight:bold;font-size:10pt;text-align:right;border-width:1px 0 0;" id="invoice_total_summ" width="80">
+ 43&nbsp;852,00&nbsp;  </td>
+   </tr><tr>
+  <td style="border:0;" colspan="5">
+    <div style="font-weight:bold;font-size:10pt;text-align:right;padding-right:5px;" id="items_summ_txt">НДС:</div>  
+  </td>
+  <td style="font-weight:bold;font-size:10pt;text-align:right;border:0;" id="invoice_total_summ" width="80">
+ 7&nbsp;893,36&nbsp;  </td>
+  </tr><tr>
+  <td style="border:0;" colspan="5">
+    <div style="font-weight:bold;font-size:10pt;text-align:right;padding-right:5px;" id="items_summ_txt">Всего:</div>  
+  </td>
+  <td style="font-weight:bold;font-size:10pt;text-align:right;border:0;" id="invoice_total_summ" width="80">
+  51&nbsp;745,36&nbsp;
+  </td>
+
+ </tr>
+</tbody></table>
+
+
+<div id="items_total_text">Всего наименований 1 на сумму 51&nbsp;745,36&nbsp; руб.</div>
+<div style="font-weight: bold;font-size: 1.2em">пятьдесят одна тысяча семьсот сорок пять рублей 36 копеек</div>
+<div style="font-style: italic ;font-size: 1.2em">С Вашей организацией работает Кузьменко Михаил Юрьевич</div>
+<div style="font-size: 0.9em;">
+    <ol>
+   <li>Настоящий договор является офертой договора поставки указанной в счете</li>
+<li>Заключение договора (акцепт) производится путем оплаты счета безналичным способом</li>
+<li>Срок действия оферты (Срок оплаты настящего счета) 20 (двадцать) дней</li>
+<li>Предоплата по данному счету 100%</li>
+<li>Срок поставки продукции после получения предоплаты 30 дней</li>
+<li> Под поставкой подразумевается самовывоз Покупателем продукции со склада поставщика или дата передачи продукции транспортной компании, указанной в пункте 6.1
+    <ol>
+ <li>Транспортная компания Деловые линии </li>   
+ <li>Покупатель несет ответственность за правильность предоставленных Поставщику отгрузочных реквизитов. </li>   
+    </ol>
+ </li>   
+<li>За правильность подбора оборудования ответственность несет Покупатель</li>
+</ol>
+</div>
+<div style="background-color:#000000;width:100%;font-size:1px;height:2px;">
+    &nbsp;
+</div>
+
+<br>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody><tr>
+        <td style="background-color: transparent; padding: 10px 10px 0; font-weight: bold; width:10px;">
+            Руководитель
+        </td>    
+        <td style="width:100px;border-bottom: 1px solid;"></td>
+        <td style="background-color: transparent; padding-top: 10px;">
+            (Филиппов И.Г. )
+            </td>
+       <td style="background-color: transparent; padding: 10px 10px 0; font-weight: bold; width:120px;">
+            Главный бухгалтер
+        </td>    
+        <td style="width:100px;border-bottom: 1px solid;"></td>
+        <td style="background-color: transparent; padding-top: 10px;">
+            (Филиппов И.Г. )
+            </td>
+    </tr>
+</tbody></table>
+<br>
+<div style="width:300px;text-align:center;padding-top: 20px;" id="mp">М.П.</div>
+
+
+<br>
+
+    </td>
+</tr>
+</tbody></table>      
+
+</td>
+        </tr>
+        </tbody></table>
+
+		<table class="table2excel" data-tableName="Test Table 2">
+			<thead>
+				<tr class="noExl"><td>This shouldn't get exported</td><td>This shouldn't get exported either</td></tr>
+				<tr><td>This Should get exported as a header</td><td>This should too</td></tr>
+			</thead>
+			<tbody>
+				<tr><td>data1a</td><td>data1b</td></tr>
+				<tr><td>data2a</td><td>data2b</td></tr>
+			</tbody>
+			<tfoot>
+				<tr><td colspan="2">This footer spans 2 cells</td></tr>
+			</tfoot>
+		</table>
+
+		<script>
+			$(function() {
+				$(".table2excel").table2excel({
+					exclude: ".noExl",
+					name: "Excel Document Name",
+					filename: "myFileName"
+				});
+			});
+		</script>
+	</body>
+</html>
