@@ -23,7 +23,7 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<span id="piclogo"><?php echo CHtml::image('images/logo.png', 'Моя компания'); ?></span>
+		<span id="piclogo"><?php echo CHtml::image('images/favicon.png', 'Моя компания'); ?></span>
 		<span id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></span>
 	</div><!-- header -->
 
@@ -61,7 +61,7 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
 //				array('label'=>'Платежи', 'url'=>array('pay/admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>1)), 'ajax' => false),
 				array('label'=>'Отгрузки', 'url'=>array('inv/admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>0)), 'ajax' => false),
                                 array('label'=>'Отчет', 'url'=>array('exp/report'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>2)), 'ajax' => false),
-				array('label'=>'Загрузка', 'url'=>array('tmpXml/admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>0)), 'ajax' => false),
+				array('label'=>'Загрузка', 'url'=>array('parcer/admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>0)), 'ajax' => false),
 //				array('label'=>'Отчет', 'url'=>array('exp/report'),'visible'=>!Yii::app()->user->isGuest, 'ajax' => false),			
 //				array('label'=>'Остатки', 'url'=>array('account/ajaxReq'),'visible'=>!Yii::app()->user->isGuest,'ajax' => array( 'update'=>'#pay_table',
 //        'complete' => 'function() {

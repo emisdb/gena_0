@@ -172,6 +172,7 @@ return array(
 //		'adminEmail'=>'info@termofit.ru',
 		'adminEmail'=>'termofit.sale@yandex.ru',
 //		'adminEmail'=>'emisdb@yandex.ru',
+		'load_csv'=>'docs/go.csv',  
 		'load_xml'=>'docs/go.xml',  
 		'load_xml_tdir'=>'docs/',  
 		'load_xml_pdf'=>'docs/pdf/',  
