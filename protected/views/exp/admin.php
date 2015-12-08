@@ -153,7 +153,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
                         'type'=>'raw',
                         'header'=>'Номер',
                         'value'=>array($model,'nameic'),
-                        'filter'=>true, // Set the filter to false when date range searching
+                        'filter' => CHtml::activeTextField($model,'name'),
                         'htmlOptions'=>array('style' => 'text-align: right;width: 80px'),
                     ),
 		 array(

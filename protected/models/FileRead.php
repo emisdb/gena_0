@@ -1,16 +1,5 @@
 <?php
-
-/**
- * This is the model class for table "country".
- *
- * The followings are the available columns in table 'country':
- * @property integer $id
- * @property string $name
- *
- * The followings are the available model relations:
- * @property Client[] $clients
- */
-class FileRead extends CActiveRecord
+class FileRead extends CFormModel
 {
     public $image;
     public $n_str;
@@ -36,7 +25,7 @@ class FileRead extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('image', 'file', 'types'=>'xml','maxSize'=>10*1024*1024),
+			array('image', 'file', 'types'=>'cvs','maxSize'=>10*1024*1024),
 			array('n_str,n_fin,n_nom,n_art,n_quant,n_price', 'numerical', 'integerOnly'=>true),
 			array('n_str,n_fin,n_nom,n_art,n_quant,n_price', 'safe'),
 		);
@@ -48,12 +37,11 @@ class FileRead extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'image'=>'Файл загрузки (xml)',
-            'n_str,n_fin,n_nom,n_art,n_quant,n_price'=>'Начальная строка',
+            'image'=>'Файл загрузки (csv)',
             'n_str'=>'Начальная строка',
             'n_fin'=>'Конечная строка',
             'n_nom'=>'Столбец номенклатуры',
-            'n_art'=>'Столбец артиккула',
+            'n_art'=>'Столбец артикула',
             'n_quant'=>'Столбец количества',
             'n_price'=>'Столбец цены',
         );

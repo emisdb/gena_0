@@ -43,16 +43,16 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog',array(
 ));
 echo("<div id='prodtable'></div>");
 $this->widget('ext.EMenu', array(
-              'model_name' =>'ProductGroup',
-				'relation_name' =>'products',
-				'top_name' =>'tnam',
-				'bottom_name' =>'tnam',
-				'picktopvalue'=>'',
-				'pickbottomvalue'=>'ckey',
-				'pickfunction'=>'setvalue',
-				'url_name' =>'javascript:void(0);',
-			  'vertical'=>'true',
-			  'theme'=>'adobe',
+        'model_name' =>'ProductGroup',
+	'relation_name' =>'products',
+	'top_name' =>'tnam',
+	'bottom_name' =>'tnam',
+	'picktopvalue'=>'',
+	'pickbottomvalue'=>'ckey',
+	'pickfunction'=>'setvalue',
+	'url_name' =>'javascript:void(0);',
+	'vertical'=>'true',
+	'theme'=>'adobe',
 ));
 								
 $this->endWidget('zii.widgets.jui.CJuiDialog');	

@@ -27,7 +27,7 @@ class ParcerController extends Controller
 	}
 	public function actionIndex()
 	{
-		$modelff=new FileForm;
+		$modelff=new FileRead;
 		if(isset($_POST['TmpXml']))
                 {
                      $model=$_POST['TmpXml'];
@@ -38,9 +38,9 @@ class ParcerController extends Controller
                 }
                 else
                 {
-                    if(isset($_POST['FileForm']))
+                    if(isset($_POST['FileRead']))
                     {
-                        $modelff->attributes=$_POST['FileForm'];
+                        $modelff->attributes=$_POST['FileRead'];
                         $modelff->image = CUploadedFile::getInstance($modelff, 'image');
                         if (is_object($modelff->image)) {          
  //                             $path=Yii::app()->params['load_xml'];
@@ -59,7 +59,7 @@ class ParcerController extends Controller
                    else
                    {
                          $this->render('fform',array(
-                                'ff'=>$modelff,
+                                'model'=>$modelff,
                         ));
                     
                    }

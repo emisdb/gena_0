@@ -6,8 +6,10 @@ body
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	background: #EFEFEF;
 }
-.grid-view table.items td{
-color: #000;
+
+.navbar
+{
+    margin-bottom: 5px;
 }
 #page
 {
