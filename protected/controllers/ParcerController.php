@@ -28,45 +28,40 @@ class ParcerController extends Controller
 	public function actionIndex()
 	{
 		$modelff=new FileRead;
-		if(isset($_POST['TmpXml']))
-                {
-                     $model=$_POST['TmpXml'];
-                     $res=$this->writesimple($model);
-                      $this->render('result',array(
-                            'model'=>$res,
-                    ));
-                }
-                else
-                {
-                    if(isset($_POST['FileRead']))
-                    {
-                        $modelff->attributes=$_POST['FileRead'];
-                        $modelff->image = CUploadedFile::getInstance($modelff, 'image');
-                        if (is_object($modelff->image)) {          
- //                             $path=Yii::app()->params['load_xml'];
-                               $path='docs/go.csv';
-                               $modelff->image->saveAs($path);
-                        }  
-                      $thefile=Yii::app()->params['load_csv'];
-                          
-                        $ii=$this->readsimple($thefile);
-                        $model=new TmpXml('search');
-                        $doc=new TmpDoc('search');
-                        $this->render('admin',array(
-                                'model'=>$model,'doc'=>$doc,'rr'=>$ii
-                        ));
-                     }
-                   else
-                   {
-                         $this->render('fform',array(
-                                'model'=>$modelff,
-                        ));
-                    
-                   }
-                  
-                }
+		if(isset($_POST['TmpXml'])){
+			$model=$_POST['TmpXml'];
+			$res=$this->writesimple($model);
+			$this->render('result',array('model'=>$res,));
+		}
+		else
+		{
+			if(isset($_POST['FileRead'])){
+				$modelff->attributes=$_POST['FileRead'];
+				if(!$modelff->validate())
+				{
+					$this->render('fform',array('model'=>$modelff,));
+					return;
+				}
+				$modelff->image = CUploadedFile::getInstance($modelff, 'image');
+				if (is_object($modelff->image)) {          
+ //				$path=Yii::app()->params['load_xml'];
+					$path='docs/go.csv';
+					$modelff->image->saveAs($path);
+				}
+				$thefile=Yii::app()->params['load_csv'];
+				$data=$this->readsimple($thefile,$modelff);
+//				$model=new TmpXml('search');
+//				$doc=new TmpDoc('search');
+//				$this->render('admin',array('model'=>$model,'doc'=>$doc,'rr'=>$ii));
+				$this->render('admin',array('model'=>$data));
+			}
+			else
+			{
+				$this->render('fform',array('model'=>$modelff,));
+			}
+		}
   	}
-	private function readsimple($thefile)
+	private function readsimple($thefile,$model)
 	{
             TmpXml::model()->deleteAll('user='.Yii::app()->user->uid);
             TmpDoc::model()->deleteAll('user='.Yii::app()->user->uid);
@@ -76,12 +71,25 @@ class ParcerController extends Controller
 //            $connection->createCommand('ALTER TABLE tmp_docd AUTO_INCREMENT = 1;')->execute();          
             $ii=0;
             $result=false;
-            if(file_exists($thefile)) 
-            $result = fopen($thefile,'r');
-            $db=1;
-            foreach ($result as $key => $value) { 
-                
-            }
+			$data=array();
+            if(file_exists($thefile)) {
+				if (($handle = fopen($thefile, "r")) === FALSE) return 'empty';
+					while (($cols = fgetcsv($handle, 1000, ";")) !== FALSE) {
+						$ii++;
+						if(($ii>=$model->n_str)&&($ii<=$model->n_fin))
+						{
+							foreach( $cols as $key => $val ) {
+								$cols[$key] = trim( $cols[$key] );
+								$cols[$key] = iconv('windows-1251', 'UTF-8', $cols[$key]."\0") ;
+								$cols[$key] = str_replace('""', '"', $cols[$key]);
+								$cols[$key] = preg_replace("/^\"(.*)\"$/sim", "$1", $cols[$key]);
+						   }
+							$data[]=$cols;
+						}
+					}
+					return $data;
         }
+		return "hui";
+	}
 
 }

@@ -25,7 +25,8 @@ class FileRead extends CFormModel
 	public function rules()
 	{
 		return array(
-			array('image', 'file', 'types'=>'cvs','maxSize'=>10*1024*1024),
+			array('image', 'file', 'types'=>'csv','maxSize'=>10*1024*1024),
+			array('n_str,n_fin,n_nom,n_art,n_quant,n_price', 'required'),
 			array('n_str,n_fin,n_nom,n_art,n_quant,n_price', 'numerical', 'integerOnly'=>true),
 			array('n_str,n_fin,n_nom,n_art,n_quant,n_price', 'safe'),
 		);

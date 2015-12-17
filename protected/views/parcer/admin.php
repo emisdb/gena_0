@@ -16,7 +16,10 @@ $this->menu=array(
 
 <h1>Manage Tmp Docds</h1>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php
+var_dump($model);
+/*
+$this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'tmp-docd-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -32,11 +35,12 @@ $this->menu=array(
 			'name'=>'nom',
 			'value'=>'$data->nom->cname'
 			),
-		/*
-		'bvat',
-		*/
+
+//		'bvat',
+
 		array(
 			'class'=>'CButtonColumn',
 		),
 	),
-)); ?>
+));*/
+		?>

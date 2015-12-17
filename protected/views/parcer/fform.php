@@ -20,9 +20,13 @@ $form=$this->beginWidget('CActiveForm', array(
         'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
 
-	<p class="note">Поля с <span class="required">*</span> обязательны.</p>
+	<?php
+ 	if($model->hasErrors())
+	{
+		echo '<div class="callout callout-danger">'.$form->errorSummary($model).'</div>';
+	}
 
-	<?php echo $form->errorSummary($model); ?>
+	?>
 	<div class="row">
 		<div class="col-md-3">
                     <h4>Настройки строк:</h4>
@@ -91,9 +95,6 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->labelEx($model,'image'); ?>
 		<?php echo $form->fileField($model, 'image',array('size'=>60,'maxlength'=>128,'types'=>'csv','class'=>'btn btn-primary')); ?>
 		<?php echo $form->error($model,'image'); ?>
-		<p class="hint">
-			Загрузка файла cvs.
-		</p>
 	</div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Загрузить',array('class'=>'btn btn-primary')); ?>
