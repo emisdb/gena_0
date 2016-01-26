@@ -137,7 +137,8 @@ class TmpDoc extends CActiveRecord
 		$criteria->compare('man',$this->man,true);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+           'pagination'=>false,
+ 			'criteria'=>$criteria,
 		));
 	}
 

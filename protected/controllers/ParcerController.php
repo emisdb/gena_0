@@ -98,11 +98,15 @@ class ParcerController extends Controller
 
 									$tmp = trim( $cols[$model->n_art-1] );
 									$data->tnum=$tmp;
-									$price = (float) $cols[$model->n_price-1] ;
+									$tmp=trim( $cols[$model->n_price-1] );
+									$tmp = str_replace(',', '.', $tmp);
+									$price = filter_var($tmp,FILTER_SANITIZE_NUMBER_FLOAT) ;
+									$tmp=trim( $cols[$model->n_quant-1] );
+									$tmp = str_replace(',', '.', $tmp);
+									$sum = filter_var($tmp,FILTER_SANITIZE_NUMBER_FLOAT) ;
 									$data->bsum=$price;
-									$sum = (float) $cols[$model->n_quant-1] ;
-//									$data->tonum=$sum/$price;
 									$data->cliname=$sum;
+									if($price!=0)	$data->tonum=$sum/$price;
 									$data->save();
 
 						}
