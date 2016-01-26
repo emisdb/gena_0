@@ -29,13 +29,13 @@ $this->widget('zii.widgets.grid.CGridView', array(
  array(
                         'name'=>'cnom',
                         'type'=>'raw',
-                        'value'=>"$data->cnom->cgr",
+                        'value'=>"\$data->nom->cgr",
                         'filter'=>false, // Set the filter to false when date range searching
  				),
  array(
                         'name'=>'cnom',
                         'type'=>'raw',
-                         'value'=>"$data->cnom->cname",
+                         'value'=>"\$data->nom->cname",
                         'filter'=>false, // Set the filter to false when date range searching
  				),
                              array(

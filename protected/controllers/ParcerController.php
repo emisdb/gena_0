@@ -103,14 +103,19 @@ class ParcerController extends Controller
 							$xml->cgr=$tmp;
 							$xml->save();
 									$tmp=trim( $cols[$model->n_price-1] );
+//									echo $tmp."/";
 									$tmp = str_replace(',', '.', $tmp);
-									$price = filter_var($tmp,FILTER_SANITIZE_NUMBER_FLOAT) ;
+//									echo $tmp."/";
+									$price = filter_var($tmp,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION) ;
 									$tmp=trim( $cols[$model->n_quant-1] );
+//									echo $tmp."/";
 									$tmp = str_replace(',', '.', $tmp);
-									$sum = filter_var($tmp,FILTER_SANITIZE_NUMBER_FLOAT) ;
+//									echo $tmp."/";
+									$sum = filter_var($tmp,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION) ;
+//									echo ":".$price.":".$sum."<hr>";
 									$data->bpri=$price;
 									$data->bsum=$sum;
-									if($price!=0)	$data->bqua=$sum/$price;
+									if($price!=0)	$data->bqua=  round ($sum/$price,4);
 									$data->save();
 
 						}
