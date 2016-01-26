@@ -31,7 +31,16 @@ class FileRead extends CFormModel
 			array('n_str,n_fin,n_nom,n_art,n_quant,n_price', 'safe'),
 		);
 	}
-
+ public function init()
+  {
+     $this->n_str = Constants::model()->getCvalue('nstr_'.Yii::app()->user->uid);
+     $this->n_fin = Constants::model()->getCvalue('nfin_'.Yii::app()->user->uid);
+     $this->n_nom = Constants::model()->getCvalue('nnom_'.Yii::app()->user->uid);
+     $this->n_art = Constants::model()->getCvalue('nart_'.Yii::app()->user->uid);
+     $this->n_quant = Constants::model()->getCvalue('nquant_'.Yii::app()->user->uid);
+     $this->n_price = Constants::model()->getCvalue('nprice_'.Yii::app()->user->uid);
+  }
+  
 	/**
 	 * @return array relational rules.
 	 */
@@ -43,7 +52,7 @@ class FileRead extends CFormModel
             'n_fin'=>'Конечная строка',
             'n_nom'=>'Столбец номенклатуры',
             'n_art'=>'Столбец артикула',
-            'n_quant'=>'Столбец количества',
+            'n_quant'=>'Столбец суммы',
             'n_price'=>'Столбец цены',
         );
     }

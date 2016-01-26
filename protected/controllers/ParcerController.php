@@ -49,11 +49,18 @@ class ParcerController extends Controller
 					$modelff->image->saveAs($path);
 				}
 				$thefile=Yii::app()->params['load_csv'];
-				$data=$this->readsimple($thefile,$modelff);
+				$ii=$this->readsimple($thefile,$modelff);
 //				$model=new TmpXml('search');
-//				$doc=new TmpDoc('search');
+				$doc=new TmpDoc('search');
 //				$this->render('admin',array('model'=>$model,'doc'=>$doc,'rr'=>$ii));
-				$this->render('admin',array('model'=>$data));
+				Constants::model()->setCvalue('nstr_'.Yii::app()->user->uid,$modelff->n_str);
+				Constants::model()->setCvalue('nfin_'.Yii::app()->user->uid,$modelff->n_fin);
+				Constants::model()->setCvalue('nnom_'.Yii::app()->user->uid,$modelff->n_nom);
+				Constants::model()->setCvalue('nart_'.Yii::app()->user->uid,$modelff->n_art);
+				Constants::model()->setCvalue('nquant_'.Yii::app()->user->uid,$modelff->n_quant);
+				Constants::model()->setCvalue('nprice_'.Yii::app()->user->uid,$modelff->n_price);
+				
+				$this->render('admin',array('model'=>$doc));
 			}
 			else
 			{
@@ -69,27 +76,40 @@ class ParcerController extends Controller
             $connection=Yii::app()->db;  
 //            $connection->createCommand('ALTER TABLE tmp_xml AUTO_INCREMENT = 1;')->execute();          
 //            $connection->createCommand('ALTER TABLE tmp_docd AUTO_INCREMENT = 1;')->execute();          
-            $ii=0;
+            $ii=0;$jj=0;
             $result=false;
-			$data=array();
+//			$data=array();
             if(file_exists($thefile)) {
 				if (($handle = fopen($thefile, "r")) === FALSE) return 'empty';
 					while (($cols = fgetcsv($handle, 1000, ";")) !== FALSE) {
 						$ii++;
 						if(($ii>=$model->n_str)&&($ii<=$model->n_fin))
 						{
-							foreach( $cols as $key => $val ) {
-								$cols[$key] = trim( $cols[$key] );
-								$cols[$key] = iconv('windows-1251', 'UTF-8', $cols[$key]."\0") ;
-								$cols[$key] = str_replace('""', '"', $cols[$key]);
-								$cols[$key] = preg_replace("/^\"(.*)\"$/sim", "$1", $cols[$key]);
-						   }
-							$data[]=$cols;
+							if($jj==0)$jj=1;
+							$data=new TmpDoc;
+							$data->id=$jj++;
+							$data->user=Yii::app()->user->uid;
+									
+									$tmp = trim( $cols[$model->n_nom-1] );
+									$tmp = iconv('windows-1251', 'UTF-8', $tmp."\0") ;
+									$tmp = str_replace('""', '"', $tmp);
+									$tmp = preg_replace("/^\"(.*)\"$/sim", "$1", $tmp);
+									$data->docinfo=$tmp;
+
+									$tmp = trim( $cols[$model->n_art-1] );
+									$data->tnum=$tmp;
+									$price = (float) $cols[$model->n_price-1] ;
+									$data->bsum=$price;
+									$sum = (float) $cols[$model->n_quant-1] ;
+//									$data->tonum=$sum/$price;
+									$data->cliname=$sum;
+									$data->save();
+
 						}
+						
 					}
-					return $data;
-        }
-		return "hui";
+       }
+		return jj;
 	}
 
 }

@@ -17,30 +17,23 @@ $this->menu=array(
 <h1>Manage Tmp Docds</h1>
 
 <?php
-var_dump($model);
-/*
+
+
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'tmp-docd-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'ckey',
-		'cnom',
-		'state',
-		'bpri',
+		'user',
+		'docinfo',
+		'tnum',
+		'tonum',
 		'bsum',
-		'bqua',
-		array(
-			'name'=>'nom',
-			'value'=>'$data->nom->cname'
-			),
-
-//		'bvat',
-
+		'cliname',
 		array(
 			'class'=>'CButtonColumn',
 		),
 	),
-));*/
+));
 		?>
