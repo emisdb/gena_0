@@ -24,13 +24,44 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+		'ckey',
 		'user',
-		'docinfo',
-		'tnum',
-		'tonum',
-		'bsum',
-		'cliname',
+ array(
+                        'name'=>'cnom',
+                        'type'=>'raw',
+                        'value'=>"$data->cnom->cgr",
+                        'filter'=>false, // Set the filter to false when date range searching
+ 				),
+ array(
+                        'name'=>'cnom',
+                        'type'=>'raw',
+                         'value'=>"$data->cnom->cname",
+                        'filter'=>false, // Set the filter to false when date range searching
+ 				),
+                             array(
+					'name'=>'amount',
+					'type'=>'raw',
+//					'header'=>'Опл.',
+					'value'=>"Yii::app()->numberFormatter->formatCurrency(\$data->bqua, '')",
+					'filter'=>true, // Set the filter to false when date range searching
+					'htmlOptions'=>array('style' => 'text-align: right;'),
+ 								 ),	
+                             array(
+					'name'=>'amount',
+					'type'=>'raw',
+//					'header'=>'Опл.',
+					'value'=>"Yii::app()->numberFormatter->formatCurrency(\$data->bpri, '')",
+					'filter'=>true, // Set the filter to false when date range searching
+					'htmlOptions'=>array('style' => 'text-align: right;'),
+ 								 ),	
+                             array(
+					'name'=>'amount',
+					'type'=>'raw',
+//					'header'=>'Опл.',
+					'value'=>"Yii::app()->numberFormatter->formatCurrency(\$data->bsum, '')",
+					'filter'=>true, // Set the filter to false when date range searching
+					'htmlOptions'=>array('style' => 'text-align: right;'),
+ 								 ),	
 		array(
 			'class'=>'CButtonColumn',
 		),

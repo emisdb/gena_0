@@ -104,6 +104,7 @@ class TmpDocd extends CActiveRecord
 		$criteria->compare('bpri',$this->bpri,true);
 
 		return new CActiveDataProvider($this, array(
+           'pagination'=>false,
 			'criteria'=>$criteria,
 		));
 	}

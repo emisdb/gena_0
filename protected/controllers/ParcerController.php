@@ -51,7 +51,7 @@ class ParcerController extends Controller
 				$thefile=Yii::app()->params['load_csv'];
 				$ii=$this->readsimple($thefile,$modelff);
 //				$model=new TmpXml('search');
-				$doc=new TmpDoc('search');
+				$doc=new TmpDocd('search');
 //				$this->render('admin',array('model'=>$model,'doc'=>$doc,'rr'=>$ii));
 				Constants::model()->setCvalue('nstr_'.Yii::app()->user->uid,$modelff->n_str);
 				Constants::model()->setCvalue('nfin_'.Yii::app()->user->uid,$modelff->n_fin);
@@ -86,27 +86,31 @@ class ParcerController extends Controller
 						if(($ii>=$model->n_str)&&($ii<=$model->n_fin))
 						{
 							if($jj==0)$jj=1;
-							$data=new TmpDoc;
-							$data->id=$jj++;
+							$data=new TmpDocd;
+							$xml=new TmpXml;
+							
+							$data->cnom=$jj;
+							$data->ckey=$jj;
 							$data->user=Yii::app()->user->uid;
-									
-									$tmp = trim( $cols[$model->n_nom-1] );
-									$tmp = iconv('windows-1251', 'UTF-8', $tmp."\0") ;
-									$tmp = str_replace('""', '"', $tmp);
-									$tmp = preg_replace("/^\"(.*)\"$/sim", "$1", $tmp);
-									$data->docinfo=$tmp;
-
-									$tmp = trim( $cols[$model->n_art-1] );
-									$data->tnum=$tmp;
+							$xml->user=Yii::app()->user->uid;
+							$xml->ckey=	$jj++;	
+								$tmp = trim( $cols[$model->n_nom-1] );
+								$tmp = iconv('windows-1251', 'UTF-8', $tmp."\0") ;
+								$tmp = str_replace('""', '"', $tmp);
+								$tmp = preg_replace("/^\"(.*)\"$/sim", "$1", $tmp);
+							$xml->cname=$tmp;
+								$tmp = trim( $cols[$model->n_art-1] );
+							$xml->cgr=$tmp;
+							$xml->save();
 									$tmp=trim( $cols[$model->n_price-1] );
 									$tmp = str_replace(',', '.', $tmp);
 									$price = filter_var($tmp,FILTER_SANITIZE_NUMBER_FLOAT) ;
 									$tmp=trim( $cols[$model->n_quant-1] );
 									$tmp = str_replace(',', '.', $tmp);
 									$sum = filter_var($tmp,FILTER_SANITIZE_NUMBER_FLOAT) ;
-									$data->bsum=$price;
-									$data->cliname=$sum;
-									if($price!=0)	$data->tonum=$sum/$price;
+									$data->bpri=$price;
+									$data->bsum=$sum;
+									if($price!=0)	$data->bqua=$sum/$price;
 									$data->save();
 
 						}

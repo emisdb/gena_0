@@ -75,18 +75,18 @@ $form=$this->beginWidget('CActiveForm', array(
 		<div class="col-md-2">
 			<div class="form-group">
 				<?php
-					echo $form->labelEx($model,'n_quant'); 
-					echo $form->textField($model,'n_quant',array('class'=>'form-control'));
-					echo $form->error($model,'n_fn_quantin'); 
+					echo $form->labelEx($model,'n_price'); 
+					echo $form->textField($model,'n_price',array('class'=>'form-control'));
+					echo $form->error($model,'n_price'); 
 				 ?>
 			</div>
 		</div>
 		<div class="col-md-2">
 			<div class="form-group">
 				<?php
-					echo $form->labelEx($model,'n_price'); 
-					echo $form->textField($model,'n_price',array('class'=>'form-control'));
-					echo $form->error($model,'n_price'); 
+					echo $form->labelEx($model,'n_quant'); 
+					echo $form->textField($model,'n_quant',array('class'=>'form-control'));
+					echo $form->error($model,'n_fn_quantin'); 
 				 ?>
 			</div>
 		</div>
