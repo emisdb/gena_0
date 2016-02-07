@@ -24,14 +24,20 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'ckey',
-		'user',
+array(
+                        'name'=>'ckey',
+				'htmlOptions'=>array('style' => 'width: 50px;'),
+	),
+array(
+                        'name'=>'user',
+				'htmlOptions'=>array('style' => 'width: 50px;'),
+	),
  array(
                         'name'=>'cnom',
                         'type'=>'raw',
                         'value'=>"\$data->nom->cgr",
                         'filter'=>false, // Set the filter to false when date range searching
- 				),
+ 			),
  array(
                         'name'=>'cnom',
                         'type'=>'raw',
@@ -64,6 +70,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
  								 ),	
 		array(
 			'class'=>'CButtonColumn',
+			'htmlOptions'=>array('style' => 'width: 80px;'),
 		),
 	),
 ));
