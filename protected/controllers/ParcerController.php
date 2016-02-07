@@ -59,6 +59,8 @@ class ParcerController extends Controller
 				Constants::model()->setCvalue('nart_'.Yii::app()->user->uid,$modelff->n_art);
 				Constants::model()->setCvalue('nquant_'.Yii::app()->user->uid,$modelff->n_quant);
 				Constants::model()->setCvalue('nprice_'.Yii::app()->user->uid,$modelff->n_price);
+				Constants::model()->setCvalue('dep_'.Yii::app()->user->uid,$modelff->department);
+				Constants::model()->setCvalue('cli_'.Yii::app()->user->uid,$modelff->client);
 				
 				$this->render('admin',array('model'=>$doc));
 			}
