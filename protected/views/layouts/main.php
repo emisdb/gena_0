@@ -46,8 +46,9 @@
 				array('label'=>'Поступления', 'url'=>array('exp/admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>1)), 'ajax' => false),
 //				array('label'=>'Платежи', 'url'=>array('pay/admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>1)), 'ajax' => false),
 				array('label'=>'Отгрузки', 'url'=>array('inv/admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>0)), 'ajax' => false),
-                                array('label'=>'Отчет', 'url'=>array('exp/report'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>2)), 'ajax' => false),
+                array('label'=>'Отчет', 'url'=>array('exp/report'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>2)), 'ajax' => false),
 				array('label'=>'Загрузка', 'url'=>array('parcer/index'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>0)), 'ajax' => false),
+                array('label'=>'Администрирование', 'url'=>array('/site/page', 'view'=>'admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>2)), 'ajax' => false),
 //				array('label'=>'Отчет', 'url'=>array('exp/report'),'visible'=>!Yii::app()->user->isGuest, 'ajax' => false),			
 /*				array('label'=>'Остатки', 'url'=>array('account/ajaxReq'),'visible'=>!Yii::app()->user->isGuest,'ajax' => array( 'update'=>'#pay_table',
 				        'complete' => 'function() {

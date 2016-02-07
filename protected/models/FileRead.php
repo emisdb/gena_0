@@ -8,6 +8,8 @@ class FileRead extends CFormModel
     public $n_art;
     public $n_quant;
     public $n_price;
+    public $department;
+    public $client;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -26,9 +28,9 @@ class FileRead extends CFormModel
 	{
 		return array(
 			array('image', 'file', 'types'=>'csv','maxSize'=>10*1024*1024),
-			array('n_str,n_fin,n_nom,n_art,n_quant,n_price', 'required'),
-			array('n_str,n_fin,n_nom,n_art,n_quant,n_price', 'numerical', 'integerOnly'=>true),
-			array('n_str,n_fin,n_nom,n_art,n_quant,n_price', 'safe'),
+			array('n_str,n_fin,n_nom,n_art,n_quant,n_price,department,client', 'required'),
+			array('n_str,n_fin,n_nom,n_art,n_quant,n_price,department,client', 'numerical', 'integerOnly'=>true),
+			array('n_str,n_fin,n_nom,n_art,n_quant,n_price,department,client', 'safe'),
 		);
 	}
  public function init()
@@ -39,6 +41,8 @@ class FileRead extends CFormModel
      $this->n_art = Constants::model()->getCvalue('nart_'.Yii::app()->user->uid);
      $this->n_quant = Constants::model()->getCvalue('nquant_'.Yii::app()->user->uid);
      $this->n_price = Constants::model()->getCvalue('nprice_'.Yii::app()->user->uid);
+     $this->department = Constants::model()->getCvalue('dep_'.Yii::app()->user->uid);
+     $this->client = Constants::model()->getCvalue('cli_'.Yii::app()->user->uid);
   }
   
 	/**
@@ -54,6 +58,8 @@ class FileRead extends CFormModel
             'n_art'=>'Столбец артикула',
             'n_quant'=>'Столбец суммы',
             'n_price'=>'Столбец цены',
+           'department'=>'Наши организации',
+           'client'=>'Контрагенты',
         );
     }
 }

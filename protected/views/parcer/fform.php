@@ -92,6 +92,29 @@ $form=$this->beginWidget('CActiveForm', array(
 		</div>
 	</div>
 	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<?php 
+					echo $form->labelEx($model,'department'); 
+					echo $form->dropDownList($model,'department', CHtml::listData(Department::model()->findAll(),'id', 'name'),
+						array('class'=>'form-control'));
+					echo $form->error($model,'department');
+				?>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+			<?php 
+					echo $form->labelEx($model,'client'); 
+					echo $form->dropDownList($model,'client', CHtml::listData(Client::model()->findAll(),'id', 'name'),
+						array('class'=>'form-control'));
+					echo $form->error($model,'client');
+				?>
+			</div>
+		</div>
+		
+	</div>
+	<div class="row">
 		<?php echo $form->labelEx($model,'image'); ?>
 		<?php echo $form->fileField($model, 'image',array('size'=>60,'maxlength'=>128,'types'=>'csv','class'=>'btn btn-primary')); ?>
 		<?php echo $form->error($model,'image'); ?>
